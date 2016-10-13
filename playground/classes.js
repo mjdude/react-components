@@ -13,12 +13,32 @@ class Person {
   }
 
   getDescription () {
-    return `${this.name} is ${this.age}`;
+    return `${this.name} is ${this.age} years old`;
   }
 }
 
+class Child extends Person {
+  constructor (name, age , like) {
+    super(name, age);
+    this.like = like;
+  }
+  getGreeting() {
+    return `Hiiiiiiiii! my name is ${this.name} and i like ${this.like}`;
+  }
+
+}
+
+
+class Baby extends Person {
+  getGreeting() {
+    return `Waaaaaaah`;
+  }
+}
 
 var me = new Person('Mo', '30');
-var defaultPerson = new Person();
-console.log(me.getDescription());
-console.log(defaultPerson.getDescription());
+var defaultPerson = new Child('AJ' , '25' , 'cars');
+var baby = new Baby();
+
+console.log(me.getGreeting());
+console.log(defaultPerson.getGreeting());
+console.log(baby.getGreeting());
