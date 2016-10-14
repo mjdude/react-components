@@ -12,8 +12,8 @@ require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
   <div>
-    <ComponentOne/>
-    <ComponentTwo></ComponentTwo>
+    <ComponentOne count={123}/>
+    <ComponentTwo count={88}></ComponentTwo>
   </div>,
   document.getElementById('app')
 );
