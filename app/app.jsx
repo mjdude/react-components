@@ -2,6 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
+import ComponentOne from './components/ComponentOne';
+import ComponentTwo from './components/ComponentTwo';
 // Load foundation
 $(document).foundation();
 
@@ -9,6 +11,9 @@ $(document).foundation();
 require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
-  <p>Boilerplate 3 Project</p>,
+  <div>
+    <ComponentOne/>
+    <ComponentTwo></ComponentTwo>
+  </div>,
   document.getElementById('app')
 );
