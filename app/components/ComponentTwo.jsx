@@ -6,12 +6,21 @@ class ComponentTwo extends React.Component {
     this.state = {
       count: props.count,
     };
+    this.onClick = this.onClick.bind(this);
   }
+
+  onClick () {
+    this.setState({
+      count: this.state.count + 1,
+    })
+  }
+
   render () {
     return (
       <div>
         <h3>Component Two Using React.Component</h3>
-          <p>Current Count: {this.state.count}</p>
+        <p>Current Count: {this.state.count}</p>
+        <button className="button" onClick={this.onClick}>Button Two</button>
       </div>
     )
   }
