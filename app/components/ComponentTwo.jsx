@@ -24,16 +24,15 @@ var adminComponent = (Component) => {
 
 
 
-    ComponentDidUpdate () {
+    componentDidUpdate () {
       console.log('Admin cmoponent did update');
 
-      if (super.ComponentDidUpdate) {
-        super.ComponentDidUpdate();
+      if (super.componentDidUpdate) {
+        super.componentDidUpdate();
       }
     }
 
     render () {
-        console.log('extended ComponentTwo');
       if (isAdmin) {
         return (
           <div className="callout secondary">
@@ -50,9 +49,9 @@ var adminComponent = (Component) => {
 
 class ComponentTwo extends React.Component {
 
-  ComponentDidUpdate () {
-    console.log('ComponentTwo did update');
-  }
+  // componentDidUpdate () {
+  //   console.log('ComponentTwo did update');
+  // }
   constructor (props) {
     super(props);
     this.state = {
