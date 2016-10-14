@@ -1,5 +1,24 @@
 import React from 'react';
 
+var isAdmin = true;
+var adminComponent = (Component) => {
+  return class Admin extends React.Component {
+    render () {
+
+      if (isAdmin) {
+        return (
+          <div className="callout secondary">
+            <p className="alert label">Private admin information</p>
+            <Component {...this.props}></Component>
+          </div>
+        )
+      } else {
+        return null;
+      }
+    }
+  }
+}
+
 class ComponentTwo extends React.Component {
   constructor (props) {
     super(props);
@@ -35,4 +54,4 @@ ComponentTwo.propTypes = {
   count: React.PropTypes.number
 }
 
-export default ComponentTwo;
+export default adminComponent(ComponentTwo);
