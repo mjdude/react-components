@@ -1,15 +1,44 @@
 import React from 'react';
 
 var isAdmin = true;
-var adminComponent = (Component) => {
-  return class Admin extends React.Component {
-    render () {
+// var adminComponent = (Component) => {
+//   return class Admin extends React.Component {
+//     render () {
+//
+//       if (isAdmin) {
+//         return (
+//           <div className="callout secondary">
+//             <p className="alert label">Private admin information</p>
+//             <Component {...this.props}></Component>
+//           </div>
+//         )
+//       } else {
+//         return null;
+//       }
+//     }
+//   }
+// }
 
+var adminComponent = (Component) => {
+  return class Admin extends Component {
+
+
+
+    ComponentDidUpdate () {
+      console.log('Admin cmoponent did update');
+
+      if (super.ComponentDidUpdate) {
+        super.ComponentDidUpdate();
+      }
+    }
+
+    render () {
+        console.log('extended ComponentTwo');
       if (isAdmin) {
         return (
           <div className="callout secondary">
             <p className="alert label">Private admin information</p>
-            <Component {...this.props}></Component>
+            {super.render()}
           </div>
         )
       } else {
@@ -20,6 +49,10 @@ var adminComponent = (Component) => {
 }
 
 class ComponentTwo extends React.Component {
+
+  ComponentDidUpdate () {
+    console.log('ComponentTwo did update');
+  }
   constructor (props) {
     super(props);
     this.state = {
